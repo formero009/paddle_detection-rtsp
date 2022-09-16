@@ -1,0 +1,26 @@
+version: '3.2'
+
+services:
+  paddle_detection:
+    container_name: paddleD
+    build: .
+    image: "paddle:latest"
+    volumes:
+      - "./mnt:/mnt"
+
+  media_server:
+    container_name: media_server
+    image: "zlmediakit/zlmediakit:master"
+    restart: unless-stopped
+    ports:
+      - "31935:1935"
+      - "38080:8080"
+      - "38443:443"
+      - "38554:554"
+      - "10000:10000"
+      - "10000:10000/udp"
+      - "8000:8000/udp"
+      - "9000:9000/udp"
+    depends_on:
+      - paddle_detection
+    

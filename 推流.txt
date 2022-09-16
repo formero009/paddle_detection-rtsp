@@ -1,0 +1,5 @@
+#推mp4/road_low.mp4 到rtsp://127.0.0.1:38554/live/vehicle_in
+./ffmpeg/bin/ffmpeg.exe -re -stream_loop -1 -i mp4/road_low.mp4 -vcodec copy -acodec copy -f rtsp -rtsp_transport tcp rtsp://127.0.0.1:38554/live/vehicle_in
+
+#推mp4/humans_low.mp4 到rtsp://127.0.0.1:38554/live/human_in
+./ffmpeg/bin/ffmpeg.exe -re -stream_loop -1 -i mp4/humans_low.mp4 -vcodec copy -acodec copy -f rtsp -rtsp_transport tcp rtsp://127.0.0.1:38554/live/human_in

@@ -1,0 +1,15 @@
+crop_thresh: 0.4
+visual: True
+warmup_frame: 50
+preview: rtsp://sub.codermax.cn:38554/live/preview
+
+DET:
+  model_dir: /mnt/models/mot_ppyoloe_s_36e_ppvehicle
+  batch_size: 8
+
+MOT:
+  model_dir: /mnt/models/mot_ppyoloe_s_36e_ppvehicle
+  tracker_config: deploy/pipeline/config/tracker_config.yml
+  batch_size: 1
+  skip_frame_num: 15 # preferably no more than 3
+  enable: True
